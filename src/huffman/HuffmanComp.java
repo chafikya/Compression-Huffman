@@ -64,8 +64,8 @@ public class HuffmanComp {
             combien_caractere+=freqTable.get(ch) ;
             
         }
-        System.out.println(combien_caractere);
-        //System.out.println( pq);
+        System.out.println("nombre carac tot : "+combien_caractere);
+        
 
         // Construire l'arbre
         while (pq.size() > 1) {
@@ -73,15 +73,12 @@ public class HuffmanComp {
             Node t2 = pq.poll();
             Node t = new Node(t1.freq + t2.freq, t1, t2);
             pq.add(t);
-            System.out.println("che cose"+t);
-
         }
         
         
 
         // Génération de codes binaires pour chaque caractère dans la chaîne de texte
         Node root = pq.poll();
-        System.out.println("daie"+root.freq);
         HashMap<Character, String> codes = new HashMap<>();
         generateCodes(root, "", codes);
         System.out.println("Codes des caracteres :");
